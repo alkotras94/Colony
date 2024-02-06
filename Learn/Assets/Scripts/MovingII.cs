@@ -11,12 +11,14 @@ public class MovingII : MonoBehaviour
     private Animator _animator;
     bool _isMau = true;
     public Transform Collecting; // Место сбора
+    private SpriteRenderer _spriteRenderer;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         TargetSclad = GameManager.Instance.Home;
         Collecting = GameManager.Instance.ColectingPeasant;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
@@ -38,6 +40,11 @@ public class MovingII : MonoBehaviour
     //У обьекта должен быть коллайдер с галочуой Тригер
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Collider")) //Чтобы голова не находилась сзади туловища другого персонажа
+        {
+            _spriteRenderer.sortingOrder = 2;
+            Debug.Log("Колайдер соприкоснулся");
+        }
         if (collision.CompareTag("Collecting")) 
         {
             Speed = 0;

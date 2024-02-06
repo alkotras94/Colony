@@ -10,6 +10,7 @@ TagManager:
   - ResoursSheet
   - Home
   - ResoursWood
+  - Collider
   layers:
   - Default
   - TransparentFX
