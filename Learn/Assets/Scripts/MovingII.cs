@@ -7,7 +7,7 @@ public class MovingII : MonoBehaviour
     public float Speed; // Скорость юнита
     [SerializeField] private int _resours; // временная ячейка для хранения переноски листа 
     public Transform TargetSclad; //Точка склада
-    public Transform TargetIstochnic = null; //Точка источника 
+    public Transform TargetIstochnic; //Точка источника 
     private Animator _animator;
     bool _isMau = true;
     public Transform Collecting; // Место сбора
@@ -64,8 +64,6 @@ public class MovingII : MonoBehaviour
         {
             CollectingResourse();
         }
-
-
     }
 
     private void Moving()
@@ -104,7 +102,6 @@ public class MovingII : MonoBehaviour
             if (transform.position.x > source.position.x)
              {
                 transform.rotation = Quaternion.Euler(0,180,0); //поворот персонажа
-
              }
              else
              {
