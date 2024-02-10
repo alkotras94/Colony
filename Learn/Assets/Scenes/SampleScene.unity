@@ -502,7 +502,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.021163587, y: 0.3067308}
   m_AnchorMax: {x: 0.21300001, y: 0.68600005}
-  m_AnchoredPosition: {x: -3.7000122, y: -25.007404}
+  m_AnchoredPosition: {x: -3.7000122, y: -25.00739}
   m_SizeDelta: {x: -2, y: -4.9000015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &130426185
@@ -548,7 +548,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 130426186}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 162993531}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: RedusPeasantFood
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &130426186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,7 +633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.0299988, y: 0.44000053}
+  m_AnchoredPosition: {x: -1.0299988, y: 0.43999863}
   m_SizeDelta: {x: -13.82, y: -13.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &152007186
@@ -832,6 +844,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActionPeasantPanel: {fileID: 402082560}
+  numberForFoof: {fileID: 58679560}
+  numberOnTheWood: {fileID: 1547739328}
+  numberOnStones: {fileID: 2010267682}
 --- !u!4 &162993532
 Transform:
   m_ObjectHideFlags: 0
@@ -960,7 +975,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23870723, y: 0.15300001}
   m_AnchorMax: {x: 0.326, y: 0.5146811}
-  m_AnchoredPosition: {x: -5.6540833, y: 1.9804192}
+  m_AnchoredPosition: {x: -5.6540833, y: 1.9804153}
   m_SizeDelta: {x: -2.8199997, y: -1.0859375}
   m_Pivot: {x: 0.67734456, y: 0.41617072}
 --- !u!114 &190213046
@@ -1236,7 +1251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23870723, y: 0.15300001}
   m_AnchorMax: {x: 0.326, y: 0.5146811}
-  m_AnchoredPosition: {x: 0, y: -2.499199}
+  m_AnchoredPosition: {x: 0, y: -2.4992065}
   m_SizeDelta: {x: -2.8199997, y: -1.0859985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &346675383
@@ -1320,7 +1335,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.14535564, y: 0.15185186}
   m_AnchorMax: {x: 0.781, y: 0.80570376}
-  m_AnchoredPosition: {x: -1.9000244, y: -1.6730042}
+  m_AnchoredPosition: {x: -1.9000244, y: -1.6730347}
   m_SizeDelta: {x: -3.8, y: -6.1461}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &402082562
@@ -1955,7 +1970,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.77964854, y: 0.3067308}
   m_AnchorMax: {x: 0.9748121, y: 0.68600005}
-  m_AnchoredPosition: {x: -2.8000183, y: -25.007404}
+  m_AnchoredPosition: {x: -2.8000183, y: -25.00739}
   m_SizeDelta: {x: -3, y: -4.9000015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &586126815
@@ -2197,7 +2212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.554, y: 0.3067308}
   m_AnchorMax: {x: 0.76321816, y: 0.68600005}
-  m_AnchoredPosition: {x: -1.8000107, y: -23.999996}
+  m_AnchoredPosition: {x: -1.8000107, y: -23.99998}
   m_SizeDelta: {x: -9, y: -4.9000015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &724855370
@@ -2243,7 +2258,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 724855371}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 162993531}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: AddPeasantFood
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &724855371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2316,7 +2343,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.11464639, y: 0.6172756}
   m_AnchorMax: {x: 0.6741673, y: 0.8763622}
-  m_AnchoredPosition: {x: -0.69999695, y: 0.5}
+  m_AnchoredPosition: {x: -0.7000122, y: 0.5}
   m_SizeDelta: {x: -2.1699982, y: -1.4799995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &739999772
@@ -2514,7 +2541,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.0299988, y: 0.44000053}
+  m_AnchoredPosition: {x: -1.0299988, y: 0.43999863}
   m_SizeDelta: {x: -13.82, y: -13.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &761250872
@@ -2931,7 +2958,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.021163587, y: 0.3067308}
   m_AnchorMax: {x: 0.21300001, y: 0.68600005}
-  m_AnchoredPosition: {x: -3.7000122, y: -25.007404}
+  m_AnchoredPosition: {x: -3.7000122, y: -25.0074}
   m_SizeDelta: {x: -2, y: -4.9000015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &813286886
@@ -2977,7 +3004,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 813286887}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 162993531}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: RedusPeasantWood
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &813286887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3417,7 +3456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.029101232, y: 0.14428583}
   m_AnchorMax: {x: 0.38629997, y: 0.3457144}
-  m_AnchoredPosition: {x: -4.3599854, y: 0.8999939}
+  m_AnchoredPosition: {x: -4.3599854, y: 0.9000244}
   m_SizeDelta: {x: -9.880001, y: -4.369995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &888021536
@@ -3761,7 +3800,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.10729277, y: 0.596}
   m_AnchorMax: {x: 0.6716464, y: 0.88363785}
-  m_AnchoredPosition: {x: 1.300003, y: 1.5}
+  m_AnchoredPosition: {x: 1.2999878, y: 1.5}
   m_SizeDelta: {x: -4.169998, y: -5.4799995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &990717415
@@ -4507,7 +4546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.0299988, y: 0.44000053}
+  m_AnchoredPosition: {x: -1.0299988, y: 0.43999863}
   m_SizeDelta: {x: -13.82, y: -13.82}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1368928988
@@ -4651,7 +4690,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f8411b8b5d22a54f92543ac4ad60005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _berries: 0
+  _food: 0
+  _wood: 0
+  _stones: 0
   _peasant: []
   _peasantStone: []
   _peasantWood: []
@@ -4663,6 +4704,7 @@ MonoBehaviour:
   FoodSource: {fileID: 821166547}
   SheetSource: {fileID: 821166547}
   WoodSource: {fileID: 2103437639}
+  Peasant: 0
   ForFood: 0
   OnTheWood: 0
   OnStones: 0
@@ -4882,7 +4924,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1426803945}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 162993531}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: AddPeasantStones
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1426803945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5480,7 +5534,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1661521891}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 162993531}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: AddPeasantWood
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1661521891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5601,7 +5667,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1705150852}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 162993531}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: RedusPeasantStones
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1705150852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6654,7 +6732,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.77964854, y: 0.3067308}
   m_AnchorMax: {x: 0.9748121, y: 0.68600005}
-  m_AnchoredPosition: {x: -2.8000183, y: -25.007404}
+  m_AnchoredPosition: {x: -2.8000183, y: -25.0074}
   m_SizeDelta: {x: -3, y: -4.9000015}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2142240375

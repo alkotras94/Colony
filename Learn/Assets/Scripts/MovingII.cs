@@ -40,11 +40,6 @@ public class MovingII : MonoBehaviour
     //У обьекта должен быть коллайдер с галочуой Тригер
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Collider")) //Чтобы голова не находилась сзади туловища другого персонажа
-        {
-            _spriteRenderer.sortingOrder = 2;
-            Debug.Log("Колайдер соприкоснулся");
-        }
         if (collision.CompareTag("Collecting")) 
         {
             Speed = 0;
@@ -121,7 +116,7 @@ public class MovingII : MonoBehaviour
             }
     }
 
-    public void AddSource()
+    public void AddSource() //Этот метод запускается из анимации крестьянина
     {
         _resours = 1;
     }
