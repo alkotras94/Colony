@@ -38,7 +38,6 @@ public class UIManager : MonoBehaviour
         numberOnTheWood.text = GameManager.Instance.OnTheWood.ToString();
         numberOnStones.text = GameManager.Instance.OnStones.ToString();
     }
-
     public void ConfirmPeasant()
     {
         GameManager.Instance.ChangeTheSourceToFood();
@@ -73,7 +72,6 @@ public class UIManager : MonoBehaviour
             UpdateTextPeasant();
         }
     }
-
     public void AddPeasantWood() //Функция добавления крестьян в источник дерева
     {
         if (GameManager.Instance.Peasant == 0)
@@ -102,7 +100,6 @@ public class UIManager : MonoBehaviour
             UpdateTextPeasant();
         }
     }
-
     public void AddPeasantStones() //Функция добавления крестьян в источник камня
     {
         if (GameManager.Instance.Peasant == 0)
@@ -131,8 +128,6 @@ public class UIManager : MonoBehaviour
             numberOnStones.text = GameManager.Instance.OnStones.ToString();
         }
     }
-
-
     public void OpenActionPeasantPanel() //Открытие панели Действий крестьян
     {
         ActionPeasantPanel.SetActive(true);

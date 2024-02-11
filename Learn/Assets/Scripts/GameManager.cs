@@ -48,7 +48,6 @@ public class GameManager : MonoBehaviour
         GameObject templateAnt = Instantiate(_templateAnt, _targetAnt.position, Quaternion.identity);
         _peasant.Add(templateAnt.GetComponent<MovingII>()); ;
     }
-
     public void TotalNumberPeasant() //Общее количество крестьян
     {
         var peasant = _peasant.Count;
@@ -61,47 +60,76 @@ public class GameManager : MonoBehaviour
     {
         if (ForFood == _peasantFood.Count)
         {
-
+            Debug.Log("Ничего не делать еда");
         }
         else if (_peasantFood.Count > ForFood)
         {
-
+            var peasant = _peasantFood.Count - ForFood;
+            RemovePeasant(_peasantFood, peasant);
         }
         else if (_peasantFood.Count < ForFood)
         {
+            var peasant = ForFood - _peasantFood.Count;
+            AddPeasant(_peasantFood, peasant, FoodSource);
+        }
 
-        }
-        else
-        {
-            for (int i = 0; i < ForFood; i++)
-            {
-                _peasant[i].Speed = 0.2f;
-                _peasant[i].TargetIstochnic = FoodSource;
-                _peasantFood.Add(_peasant[i]);
-            }
-            _peasant.RemoveRange(0, ForFood);
-        }
     }
     public void ChangeTheSourceToStone() //Поменять источник на камень
     {
-        for (int i = 0; i < OnStones; i++)
+        if (OnStones == _peasantStone.Count)
         {
-            _peasant[i].Speed = 0.2f;
-            _peasant[i].TargetIstochnic = SheetSource;
-            _peasantStone.Add(_peasant[i]);
+            Debug.Log("Ничего не делать камень");
         }
-        _peasant.RemoveRange(0, OnStones);
+        else if (_peasantStone.Count > OnStones)
+        {
+            var peasant = _peasantStone.Count - OnStones;
+            RemovePeasant(_peasantStone, peasant);
+        }
+        else if (_peasantStone.Count < OnStones)
+        {
+            var peasant = OnStones - _peasantStone.Count;
+            AddPeasant(_peasantStone, peasant, SheetSource);
+        }
     }
-
     public void ChangeTheSourceToWood() //Поменять источник на дерево
     {
-        for (int i = 0; i < OnTheWood; i++)
+        if (OnTheWood == _peasantWood.Count)
+        {
+            Debug.Log("Ничего не делать камень");
+        }
+        else if (_peasantWood.Count > OnTheWood)
+        {
+            var peasant = _peasantWood.Count - OnTheWood;
+            RemovePeasant(_peasantWood, peasant);
+        }
+        else if (_peasantWood.Count < OnTheWood)
+        {
+            var peasant = OnTheWood - _peasantWood.Count;
+            AddPeasant(_peasantWood, peasant, WoodSource);
+        }
+    }
+    public void RemovePeasant(List<MovingII> list, int peasant) //метод удаления обьектов с листа
+    {
+        for (int i = 0; i < peasant; i++)
+        {
+            //_peasant[i].Speed = 0.2f;
+            list[i].TargetIstochnic = ColectingPeasant;
+            _peasant.Add(list[i]);
+        }
+        list.RemoveRange(0, peasant);
+    }
+    public void AddPeasant(List<MovingII> list, int peasant,Transform source) //метод добавления обьектов в лист
+    {
+        for (int i = 0; i < peasant; i++)
         {
             _peasant[i].Speed = 0.2f;
-            _peasant[i].TargetIstochnic = WoodSource;
-            _peasantWood.Add(_peasant[i]);
+            _peasant[i].TargetIstochnic = source;
+            list.Add(_peasant[i]);
         }
-        _peasant.RemoveRange(0, OnTheWood);
+        _peasant.RemoveRange(0, peasant);
     }
+
+
+
 
 }
