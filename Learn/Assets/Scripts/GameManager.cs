@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [Tooltip("Источник дерева")] public Transform WoodSource; // Источник дерева
 
     //Счетчики для ресурсов, вспомогательные переменные
+    public int TotalPesant; //Общее количество крестьян
     public int Peasant; //Вспомогательная переменная хранящая значения свободных крестьян
     public int ForFood; //На еду
     public int OnTheWood; //Кто пойдет на дерево
@@ -48,15 +49,38 @@ public class GameManager : MonoBehaviour
         _peasant.Add(templateAnt.GetComponent<MovingII>()); ;
     }
 
+    public void TotalNumberPeasant() //Общее количество крестьян
+    {
+        var peasant = _peasant.Count;
+        var peasantFood = _peasantFood.Count;
+        var peasantWood = _peasantWood.Count;
+        var peasantStone = _peasantStone.Count;
+        TotalPesant = peasant + peasantFood + peasantWood + peasantStone;
+    }
     public void ChangeTheSourceToFood() //Поменять источник на еду
     {
-        for (int i = 0; i < ForFood; i++)
+        if (ForFood == _peasantFood.Count)
         {
-            _peasant[i].Speed = 0.2f;
-            _peasant[i].TargetIstochnic = FoodSource;
-            _peasantFood.Add(_peasant[i]);
+
         }
-        _peasant.RemoveRange(0, ForFood);
+        else if (_peasantFood.Count > ForFood)
+        {
+
+        }
+        else if (_peasantFood.Count < ForFood)
+        {
+
+        }
+        else
+        {
+            for (int i = 0; i < ForFood; i++)
+            {
+                _peasant[i].Speed = 0.2f;
+                _peasant[i].TargetIstochnic = FoodSource;
+                _peasantFood.Add(_peasant[i]);
+            }
+            _peasant.RemoveRange(0, ForFood);
+        }
     }
     public void ChangeTheSourceToStone() //Поменять источник на камень
     {

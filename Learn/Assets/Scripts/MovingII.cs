@@ -11,14 +11,12 @@ public class MovingII : MonoBehaviour
     private Animator _animator;
     bool _isMau = true;
     public Transform Collecting; // Место сбора
-    private SpriteRenderer _spriteRenderer;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         TargetSclad = GameManager.Instance.Home;
         Collecting = GameManager.Instance.ColectingPeasant;
-        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
@@ -48,6 +46,11 @@ public class MovingII : MonoBehaviour
         if (collision.CompareTag("Home")) 
         {
             _resours = 0;
+        }
+
+        if (collision.CompareTag("ResoursFood")) //Если попал в тригер камня
+        {
+            CollectingResourse();
         }
 
         if (collision.CompareTag("ResoursSheet")) //Если попал в тригер камня

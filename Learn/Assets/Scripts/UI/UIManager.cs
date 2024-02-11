@@ -6,8 +6,10 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {//Менеджер интерфейса
 
+    [Header("Панель крестьяне")]
     public GameObject ActionPeasantPanel; //Панель действий и создания крестьян
-    //public TMP_Text TotalPeasant; //Общее количество крестьян
+    public TMP_Text TotalPeasant; //Общее количество крестьян
+    public TMP_Text FreePeasant; //Свободные крестьяне
     public TMP_Text numberForFoof; //Отображение назначеных крестьян на источник еды
     public TMP_Text numberOnTheWood; //Отображение назначеных крестьян на источник дерева
     public TMP_Text numberOnStones; //Отображение назначеных крестьян на источник камня
@@ -27,18 +29,34 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void UpdateTextPeasant() //Обновление текста во вкладке крестьян
+    {
+        GameManager.Instance.TotalNumberPeasant();//Вызываем функцию для обновления переменной
+        FreePeasant.text = GameManager.Instance.Peasant.ToString();
+        TotalPeasant.text = GameManager.Instance.TotalPesant.ToString();
+        numberForFoof.text = GameManager.Instance.ForFood.ToString();
+        numberOnTheWood.text = GameManager.Instance.OnTheWood.ToString();
+        numberOnStones.text = GameManager.Instance.OnStones.ToString();
+    }
+
+    public void ConfirmPeasant()
+    {
+        GameManager.Instance.ChangeTheSourceToFood();
+        GameManager.Instance.ChangeTheSourceToWood();
+        GameManager.Instance.ChangeTheSourceToStone();
+    }
     public void AddPeasantFood() //Функция добавления крестьян в источник еды
     {
         if (GameManager.Instance.Peasant == 0)
         {
             Debug.Log("Крестьяне закончились");
-            numberForFoof.text = GameManager.Instance.ForFood.ToString();
+            UpdateTextPeasant();
         }
         else
         {
             GameManager.Instance.Peasant--;
             GameManager.Instance.ForFood++;
-            numberForFoof.text = GameManager.Instance.ForFood.ToString();
+            UpdateTextPeasant();
         }
     }
     public void RedusPeasantFood() //Функция удаления крестьян из источника еды
@@ -46,13 +64,13 @@ public class UIManager : MonoBehaviour
         if (GameManager.Instance.ForFood == 0)
         {
             Debug.Log("Ниже назначить нельзя");
-            numberForFoof.text = GameManager.Instance.ForFood.ToString();
+            UpdateTextPeasant();
         }
         else
         {
             GameManager.Instance.Peasant++;
             GameManager.Instance.ForFood--;
-            numberForFoof.text = GameManager.Instance.ForFood.ToString();
+            UpdateTextPeasant();
         }
     }
 
@@ -61,13 +79,13 @@ public class UIManager : MonoBehaviour
         if (GameManager.Instance.Peasant == 0)
         {
             Debug.Log("Крестьяне закончились");
-            numberOnTheWood.text = GameManager.Instance.OnTheWood.ToString();
+            UpdateTextPeasant();
         }
         else
         {
             GameManager.Instance.Peasant--;
             GameManager.Instance.OnTheWood++;
-            numberOnTheWood.text = GameManager.Instance.OnTheWood.ToString();
+            UpdateTextPeasant();
         }
     }
     public void RedusPeasantWood() //Функция удаления крестьян из источника дерева
@@ -75,13 +93,13 @@ public class UIManager : MonoBehaviour
         if (GameManager.Instance.OnTheWood == 0)
         {
             Debug.Log("Ниже назначить нельзя");
-            numberOnTheWood.text = GameManager.Instance.OnTheWood.ToString();
+            UpdateTextPeasant();
         }
         else
         {
             GameManager.Instance.Peasant++;
             GameManager.Instance.OnTheWood--;
-            numberOnTheWood.text = GameManager.Instance.OnTheWood.ToString();
+            UpdateTextPeasant();
         }
     }
 
@@ -90,13 +108,13 @@ public class UIManager : MonoBehaviour
         if (GameManager.Instance.Peasant == 0)
         {
             Debug.Log("Крестьяне закончились");
-            numberOnStones.text = GameManager.Instance.OnStones.ToString();
+            UpdateTextPeasant();
         }
         else
         {
             GameManager.Instance.Peasant--;
             GameManager.Instance.OnStones++;
-            numberOnStones.text = GameManager.Instance.OnStones.ToString();
+            UpdateTextPeasant();
         }
     }
     public void RedusPeasantStones() //Функция удаления крестьян из источника камня
@@ -114,6 +132,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
+
     public void OpenActionPeasantPanel() //Открытие панели Действий крестьян
     {
         ActionPeasantPanel.SetActive(true);
@@ -125,6 +144,7 @@ public class UIManager : MonoBehaviour
     public void AddPeasant() //Добавление новых крестьян
     {
         GameManager.Instance.AddAnt();
+        UpdateTextPeasant();
     }
 
 
