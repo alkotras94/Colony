@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class MovingII : MonoBehaviour
 {   //Скрипт передвижения персонажей и хранения ресурсов у крестьян
     public float Speed; // Скорость юнита
-    [SerializeField] private int _resours; // временная ячейка для хранения переноски листа 
+    [SerializeField] private int _resoursFood; //Временные переменные для хранения ресурсов для переноски
+    [SerializeField] private int _resoursWood;
+    [SerializeField] private int _resoursStone;
     public Transform TargetSclad; //Точка склада
     public Transform TargetIstochnic; //Точка источника 
     private Animator _animator;
-    bool _isMau = true;
+    public bool _isMau = true;
+    public bool isCome = true; //Переменная для захода в тригер
     public Transform Collecting; // Место сбора
 
     private void Start()
@@ -18,7 +22,7 @@ public class MovingII : MonoBehaviour
         TargetSclad = GameManager.Instance.Home;
         Collecting = GameManager.Instance.ColectingPeasant;
     }
-    private void Update()
+    private void FixedUpdate()
     {
 
         if (TargetIstochnic == null)
@@ -45,28 +49,58 @@ public class MovingII : MonoBehaviour
 
         if (collision.CompareTag("Home")) 
         {
-            _resours = 0;
+            if (_resoursFood == 1)
+            {
+                GameManager.Instance.Food += _resoursFood;
+                _resoursFood = 0;
+            }
+            if (_resoursWood == 1)
+            {
+                GameManager.Instance.Wood += _resoursWood;
+                _resoursWood = 0;
+            }
+            if (_resoursStone == 1)
+            {
+                GameManager.Instance.Stone += _resoursStone;
+                _resoursStone = 0;
+            }
+            _resoursFood = 0;
+            _resoursWood = 0;
+            _resoursStone = 0;
+            isCome = true;
         }
 
         if (collision.CompareTag("ResoursFood")) //Если попал в тригер камня
         {
             CollectingResourse();
+            if (_resoursFood == 0)
+            {
+                _resoursFood += 1;
+            }
         }
 
         if (collision.CompareTag("ResoursSheet")) //Если попал в тригер камня
         {
             CollectingResourse();
+            if (_resoursStone == 0)
+            {
+                _resoursStone += 1;
+            }
         }
 
         if (collision.CompareTag("ResoursWood")) //Если попал в тригер дерева
         {
             CollectingResourse();
+            if (_resoursWood == 0)
+            {
+                _resoursWood += 1;
+            }
         }
     }
 
     private void Moving()
     {
-        if (_resours == 0)
+        if (isCome)
         {
             TurnWithoutResources(TargetIstochnic); //поворот
             if (_isMau)
@@ -74,7 +108,7 @@ public class MovingII : MonoBehaviour
                 MoveTransform(TargetIstochnic);
             }
         }
-        if (_resours == 1)
+        if (!isCome)
         {
             _animator.SetBool("AxeBool", false);
             _isMau = true;
@@ -121,7 +155,8 @@ public class MovingII : MonoBehaviour
 
     public void AddSource() //Этот метод запускается из анимации крестьянина
     {
-        _resours = 1;
+        //_resours = 1;
+        isCome = false;
     }
 
     public void CollectingResourse() //Метод анимации, движения и поворота персонажа при сборе ресурсов
@@ -131,13 +166,13 @@ public class MovingII : MonoBehaviour
         {
             _animator.SetBool("AxeBool", true);
             transform.rotation = Quaternion.Euler(0, 180, 0);
-            Debug.Log("Забрал лист");
+            Debug.Log("Забрал ресурс");
         }
         else
         {
             _animator.SetBool("AxeBool", true);
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            Debug.Log("Забрал лист");
+            Debug.Log("Забрал ресурс");
         }
     }
 }

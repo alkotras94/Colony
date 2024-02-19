@@ -1,0 +1,21 @@
+{
+    "idSave": 30,
+    "isFirstSession": false,
+    "language": "ru",
+    "promptDone": false,
+    "money": 1,
+    "newPlayerName": "Hello!",
+    "openLevels": [
+        false,
+        true,
+        false
+    ],
+    "Food": 0,
+    "Wood": 14,
+    "Stone": 18,
+    "TotalPesant": 5,
+    "Peasant": 0,
+    "ForFood": 0,
+    "OnTheWood": 2,
+    "OnStones": 3
+}

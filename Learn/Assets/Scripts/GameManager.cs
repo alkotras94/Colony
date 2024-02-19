@@ -5,9 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("Гейм менеджер")]
-    [Tooltip("Ресурсы ягод")] [SerializeField] private int _food;
-    [Tooltip("Ресурсы дерева")] [SerializeField] private int _wood;
-    [Tooltip("Ресурсы камня")] [SerializeField] private int _stones;
+
+    [Tooltip("Ресурсы ягод")] public int Food;
+    [Tooltip("Ресурсы дерева")] public int Wood;
+    [Tooltip("Ресурсы камня")] public int Stone;
     [Tooltip("Лист с крестьянами без работы")] [SerializeField] private List<MovingII> _peasant;
     [Tooltip("Лист с крестьянами, с путем к камню")] [SerializeField] private List<MovingII> _peasantStone = new List<MovingII>();
     [Tooltip("Лист с крестьянами, с путем к дереву")] [SerializeField] private List<MovingII> _peasantWood = new List<MovingII>();
@@ -20,13 +21,12 @@ public class GameManager : MonoBehaviour
     [Tooltip("Источник камня")] public Transform SheetSource; // Источник камня
     [Tooltip("Источник дерева")] public Transform WoodSource; // Источник дерева
 
-    //Счетчики для ресурсов, вспомогательные переменные
+    //Счетчики для ресурсов/крестьян, вспомогательные переменные
     public int TotalPesant; //Общее количество крестьян
     public int Peasant; //Вспомогательная переменная хранящая значения свободных крестьян
     public int ForFood; //На еду
     public int OnTheWood; //Кто пойдет на дерево
     public int OnStones; //Кто пойдет на камень
-
     public static GameManager Instance { get; set; }
     private void Awake()
     {
@@ -42,6 +42,21 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        StartSaveAddAnt();
+    }
+    public void StartSaveAddAnt()//Создание сохраненных крестьян при загрузке игры
+    {
+        for (int i = 0; i < TotalPesant; i++)
+        {
+            GameObject templateAnt = Instantiate(_templateAnt, _targetAnt.position, Quaternion.identity);
+            _peasant.Add(templateAnt.GetComponent<MovingII>()); ;
+        }
+        ChangeTheSourceToFood();
+        ChangeTheSourceToStone();
+        ChangeTheSourceToWood();
+    }
     public void AddAnt() // добавление новых крестьян
     {
         Peasant++;

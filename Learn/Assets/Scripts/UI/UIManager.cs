@@ -14,6 +14,11 @@ public class UIManager : MonoBehaviour
     public TMP_Text numberOnTheWood; //Отображение назначеных крестьян на источник дерева
     public TMP_Text numberOnStones; //Отображение назначеных крестьян на источник камня
 
+    [Header("Панель ресурсов")]
+    public TMP_Text Food; //Отображение еды
+    public TMP_Text Wood; //Отображение дерева
+    public TMP_Text Stone; //Отображение камня
+
     public static UIManager Instance { get; set; }
     private void Awake()
     {
@@ -29,6 +34,20 @@ public class UIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void Start()
+    {
+        FreePeasant.text = GameManager.Instance.Peasant.ToString();
+        TotalPeasant.text = GameManager.Instance.TotalPesant.ToString();
+        numberForFoof.text = GameManager.Instance.ForFood.ToString();
+        numberOnTheWood.text = GameManager.Instance.OnTheWood.ToString();
+        numberOnStones.text = GameManager.Instance.OnStones.ToString();
+    }
+    private void Update()
+    {
+        Food.text = "Еда: " + GameManager.Instance.Food.ToString();
+        Wood.text = "Дерево: " + GameManager.Instance.Wood.ToString();
+        Stone.text = "Камень: " + GameManager.Instance.Stone.ToString();
+    }
     public void UpdateTextPeasant() //Обновление текста во вкладке крестьян
     {
         GameManager.Instance.TotalNumberPeasant();//Вызываем функцию для обновления переменной
@@ -119,13 +138,13 @@ public class UIManager : MonoBehaviour
         if (GameManager.Instance.OnStones == 0)
         {
             Debug.Log("Ниже назначить нельзя");
-            numberOnStones.text = GameManager.Instance.OnStones.ToString();
+            UpdateTextPeasant();
         }
         else
         {
             GameManager.Instance.Peasant++;
             GameManager.Instance.OnStones--;
-            numberOnStones.text = GameManager.Instance.OnStones.ToString();
+            UpdateTextPeasant();
         }
     }
     public void OpenActionPeasantPanel() //Открытие панели Действий крестьян
