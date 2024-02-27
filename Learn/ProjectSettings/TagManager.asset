@@ -12,6 +12,7 @@ TagManager:
   - ResoursWood
   - Collider
   - ResoursFood
+  - Enemy
   layers:
   - Default
   - TransparentFX

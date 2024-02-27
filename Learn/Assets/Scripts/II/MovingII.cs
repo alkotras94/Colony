@@ -114,13 +114,6 @@ public class MovingII : MonoBehaviour
             _isMau = true;
             TurningWithResources(TargetIstochnic); //поворот
             MoveTransform(TargetSclad);
-
-            /*if (transform.position == TargetSclad.position)
-            {
-                //_resoursList.AddList(_resours);
-                _resours = 0;
-                Debug.Log("Принес лист");
-            }*/
         }
     }
 
