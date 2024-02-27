@@ -13,6 +13,8 @@ TagManager:
   - Collider
   - ResoursFood
   - Enemy
+  - PlayerArrow
+  - EnemyArrow
   layers:
   - Default
   - TransparentFX

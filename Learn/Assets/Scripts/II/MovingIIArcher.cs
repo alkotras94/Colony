@@ -5,21 +5,26 @@ using UnityEngine.Events;
 
 public class MovingIIArcher : MonoBehaviour
 {
+    //Публичные поля
     public float Speed; // Скорость лучника
-    private Animator _animator;
     public Transform Target; //Цель лучника
     public GameObject Arrow; // Префаб стрелы
     public Transform TransformArrow; // Место создания стрелы у лучника
-    public float ArrowForce; //Скорость полета стрелы
     public string EnemyTag; //Тег врагов
-    public Turn turn; //Ссылка на компонент поворота
+    public float SecondCadr;
+    public float SecondShoot;
 
+    //Приватные поля
+    private Turn turn; //Ссылка на компонент поворота
+    private Animator _animator;
     private void Start()
     {
         turn = GetComponent<Turn>();
+        _animator = GetComponent<Animator>();
     }
     private void Update()
     {
+        SecondCadr += Time.deltaTime;
         /*if (Input.GetButtonDown("Fire1"))
         {
             ChecShoot();
@@ -34,8 +39,12 @@ public class MovingIIArcher : MonoBehaviour
             turn.TargetEnemy(Target);
             turn.TurnAround();
             Debug.Log(gameObject + "Враг в тригере");
-
-            ChecShoot();
+            if (SecondCadr > SecondShoot)
+            {
+                ChecShoot();
+                _animator.SetBool("isEnemy", true);
+                SecondCadr = 0;
+            }
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -43,6 +52,7 @@ public class MovingIIArcher : MonoBehaviour
         if (collision.CompareTag(EnemyTag))
         {
             Target = null;
+            _animator.SetBool("isEnemy", false);
             Debug.Log(gameObject + "Враг вышел из зоны действий");
         }
     }
@@ -53,7 +63,7 @@ public class MovingIIArcher : MonoBehaviour
 
     public void ChecShoot() //Метод создания стрелы
     {
-        GameObject arrow = Instantiate(Arrow,TransformArrow.position,TransformArrow.rotation);
+        GameObject arrow = Instantiate(Arrow, TransformArrow);
         Arrow Ar = arrow.GetComponent<Arrow>();
         Ar.AddTarget(Target);
     }

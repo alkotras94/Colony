@@ -1,19 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 public class Arrow : MonoBehaviour
 {
     public int Damage; //Сколько нанесет урона
     public float Speed; //Скорость стрелы
-    private Transform Target; //Цель стрелы
-    public string EnemyTag;
-
+    public Transform Target; //Цель стрелы
+    public string EnemyTag; //
 
     private void Update()
     {
+        /*if (transform.position == Target.position)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            MoveTowardsArrow();
+            PursuitOfTheArrow();
+        }*/
+        /*try
+        {
+            MoveTowardsArrow();
+            PursuitOfTheArrow();
+        }
+        catch(MissingReferenceException)
+        {
+            Destroy(gameObject);
+        }*/
         MoveTowardsArrow();
+        PursuitOfTheArrow();
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag(EnemyTag))
@@ -21,7 +37,9 @@ public class Arrow : MonoBehaviour
             Heals heals = collision.gameObject.GetComponent<Heals>();
             heals.TakeDamage(Damage);
             Destroy(gameObject);
+            Debug.Log("Обьект попал");
         }
+        Debug.Log("Обьект попал");
     }
 
     public void AddTarget(Transform target) //Метод вызывается в другом компоненте
