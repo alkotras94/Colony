@@ -13,6 +13,7 @@ public class Arrow : MonoBehaviour
     private void Update()
     {
         MoveTowardsArrow();
+        PursuitOfTheArrow();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
