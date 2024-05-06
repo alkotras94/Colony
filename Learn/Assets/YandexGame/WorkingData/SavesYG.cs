@@ -18,9 +18,9 @@ namespace YG
 
         // Ваши сохранения
 
-        public int Food;
-        public int Wood;
-        public int Stone;
+        public int Food; //Количество еды
+        public int Wood; //Количество дерева
+        public int Stone; //Количество камня
         public int TotalPesant; //Общее количество крестьян
         public int Peasant; //Свободные крестьяне
         public int ForFood; //На еду
