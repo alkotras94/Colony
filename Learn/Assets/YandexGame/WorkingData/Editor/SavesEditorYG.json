@@ -1,5 +1,5 @@
 {
-    "idSave": 40,
+    "idSave": 41,
     "isFirstSession": false,
     "language": "ru",
     "promptDone": false,
@@ -10,12 +10,12 @@
         true,
         false
     ],
-    "Food": 55,
-    "Wood": 213,
-    "Stone": 173,
-    "TotalPesant": 30,
+    "Food": 0,
+    "Wood": 0,
+    "Stone": 0,
+    "TotalPesant": 0,
     "Peasant": 0,
-    "ForFood": 8,
-    "OnTheWood": 11,
-    "OnStones": 11
+    "ForFood": 0,
+    "OnTheWood": 0,
+    "OnStones": 0
 }

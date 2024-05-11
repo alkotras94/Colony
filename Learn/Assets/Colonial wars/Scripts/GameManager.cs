@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [Tooltip("Ресурсы ягод")] public int Food;
     [Tooltip("Ресурсы дерева")] public int Wood;
     [Tooltip("Ресурсы камня")] public int Stone;
+    [Tooltip("Ресурсы золота")] public int Gold;
     [Tooltip("Лист с крестьянами без работы")] [SerializeField] private List<MovingII> _peasant;
     [Tooltip("Лист с крестьянами, с путем к камню")] [SerializeField] private List<MovingII> _peasantStone = new List<MovingII>();
     [Tooltip("Лист с крестьянами, с путем к дереву")] [SerializeField] private List<MovingII> _peasantWood = new List<MovingII>();
@@ -40,7 +41,6 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
-
     private void Start()
     {
         StartSaveAddAnt();
@@ -70,7 +70,6 @@ public class GameManager : MonoBehaviour
         var peasantStone = _peasantStone.Count;
         TotalPesant = peasant + peasantFood + peasantWood + peasantStone;
     }
-
     public void AreTheObjectsEqual() //Сначало проверяем на равность
     {
         if (ForFood == _peasantFood.Count)
@@ -86,7 +85,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("С крестьянами дерева ничего не делать");
         }
     }
-
     public void RemovingObjectsFromTheSheet() // удаление объектов с листа
     {
         if (_peasantFood.Count > ForFood)
@@ -108,7 +106,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("Удалить крестьян с добычи дерева в количестве: " + peasant);
         }
     }
-
     public void AddingObjectsToSheets() //Добавление обьектов в лист
     {
         if (_peasantFood.Count < ForFood)

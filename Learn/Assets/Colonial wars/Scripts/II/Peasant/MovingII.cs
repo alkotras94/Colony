@@ -98,7 +98,6 @@ public class MovingII : MonoBehaviour
             }
         }
     }
-
     private void Moving()
     {
         if (isCome)
@@ -117,12 +116,10 @@ public class MovingII : MonoBehaviour
             MoveTransform(TargetSclad);
         }
     }
-
     private void MoveTransform(Transform target) //Передвижение персонажа
     {
         transform.position = Vector3.MoveTowards(transform.position, target.position, Speed * Time.deltaTime);
     }
-    
     public void TurnWithoutResources(Transform source) //Поворот обекта без ресурсов
     {
             if (transform.position.x > source.position.x)
@@ -134,7 +131,6 @@ public class MovingII : MonoBehaviour
                  transform.rotation = Quaternion.Euler(0, 0, 0);
              }
     }
-
     public void TurningWithResources(Transform source) //Поворот обекта с ресурсами
     {
             if (transform.position.x < source.position.x)
@@ -146,13 +142,11 @@ public class MovingII : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
     }
-
     public void AddSource() //Этот метод запускается из анимации крестьянина
     {
         //_resours = 1;
         isCome = false;
     }
-
     public void CollectingResourse() //Метод анимации, движения и поворота персонажа при сборе ресурсов
     {
         _isMau = false;
