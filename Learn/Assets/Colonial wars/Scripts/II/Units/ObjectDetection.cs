@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectDetection : MonoBehaviour
-{//Скрипт для обнаружения врага
+{//Скрипт для обнаружения врага и стрельбы для лучника
     [SerializeField] private string EnemyTag = "Enemy";
 	[SerializeField] private Shooting _shoting; 
     private Transform _target; //Цель
     public Animator Animator; //Анимация 
-
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -18,8 +17,7 @@ public class ObjectDetection : MonoBehaviour
             Animator.SetBool("Trigger",true);
             Transform target = collision.transform;
             _target = target;
-            _shoting.AddTarget(_target);
-            //_shoting.IsTheEnemyField();
+            _shoting.AddTarget(_target); //для стрельбы
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -29,7 +27,6 @@ public class ObjectDetection : MonoBehaviour
             Debug.Log(gameObject + "Враг вышел из зоны");
             Animator.SetBool("Trigger", false);
             _target = null;
-            //_shoting.EnemyOut();
         }
     }
 }

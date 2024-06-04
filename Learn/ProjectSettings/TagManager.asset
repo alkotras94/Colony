@@ -15,6 +15,7 @@ TagManager:
   - Enemy
   - PlayerArrow
   - EnemyArrow
+  - ObjectDetection
   layers:
   - Default
   - TransparentFX

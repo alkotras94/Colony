@@ -13,13 +13,17 @@ public class GameManager : MonoBehaviour
     [Tooltip("Лист с крестьянами, с путем к камню")] [SerializeField] private List<MovingII> _peasantStone = new List<MovingII>();
     [Tooltip("Лист с крестьянами, с путем к дереву")] [SerializeField] private List<MovingII> _peasantWood = new List<MovingII>();
     [Tooltip("Лист с крестьянами, с путем к еде")] [SerializeField] private List<MovingII> _peasantFood = new List<MovingII>();
-    [Tooltip("Шаблон с крестьянами")] [SerializeField] private GameObject _templateAnt; 
+    [Tooltip("Шаблон с крестьянами")] [SerializeField] private GameObject _templateAnt;
     [Tooltip("Место создания крестьян")] [SerializeField] private Transform _targetAnt;
     [Tooltip("Координаты склада")] public Transform Home; // Склад, дом
     [Tooltip("Место сбора после создания")] public Transform ColectingPeasant; // Место сбора после создания крестьян и не работающих крестьян
     [Tooltip("Источник еды")] public Transform FoodSource; // Источник еды
     [Tooltip("Источник камня")] public Transform SheetSource; // Источник камня
     [Tooltip("Источник дерева")] public Transform WoodSource; // Источник дерева
+    [Tooltip("Место сбора лучников после создания")] public Transform ColectingArcher;
+    [Tooltip("Место сбора копейщиков после создания")] public Transform ColectingSpearman;
+    [Tooltip("Место сбора мечников после создания")] public Transform ColectingSwordsman;
+    [Tooltip("Место поле боя")] public Transform ColectingFront;
 
     //Счетчики для ресурсов/крестьян, вспомогательные переменные
     public int TotalPesant; //Общее количество крестьян
@@ -206,7 +210,10 @@ public class GameManager : MonoBehaviour
         }
         _peasant.RemoveRange(0, peasant);
     }
-
+    public void SpendMoney(int food, int wood, int stone, int gold)
+    {
+        
+    }
 
 
 

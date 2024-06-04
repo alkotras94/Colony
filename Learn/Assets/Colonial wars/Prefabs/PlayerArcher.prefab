@@ -134,7 +134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67b4841cf9cea044ae5aaa76d9eeba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 1
+  _speed: 0.2
+  _target: {fileID: 0}
+  _targetFront: {fileID: 0}
 --- !u!114 &5758136366240847501
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +221,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!1 &6603829790666290799
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cca77be18de16c64cba2b2bc1959aae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 447127742238089954, guid: 31fe77b05645145419699b0cf9649933, type: 3}
+  _prefab: {fileID: 2345489126736622822, guid: 6dac84220594ab44e9a8f0640ea04558, type: 3}
   _container: {fileID: 2186593989266035961}
   _minCapacity: 5
   _maxCapacity: 10
@@ -556,7 +558,7 @@ GameObject:
   - component: {fileID: 6104626826431289827}
   m_Layer: 0
   m_Name: RangeViewSprite
-  m_TagString: Untagged
+  m_TagString: ObjectDetection
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

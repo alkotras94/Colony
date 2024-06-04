@@ -13,6 +13,7 @@ public class BaraksManager : MonoBehaviour
     public List<GameObject> Archer; //Лист лучников
     public List<GameObject> Spearman; //Лист копейщиков
     public List<GameObject> Swordsman; //Лист мечников
+    
     [Header("Уровень казармы")]
     public int LevelBaraks; //Уровень казармы текущий
     public int NextLevelBaraks; //Следующий уровень казармы
@@ -45,9 +46,15 @@ public class BaraksManager : MonoBehaviour
         if (GameManager.Instance.Gold >= PriceArcherGold || GameManager.Instance.Wood >= PriceArcherWood)
         {
             GameObject templateArcher = Instantiate(TemplateArcher, Home.position, Quaternion.identity);
+            templateArcher.GetComponent<Moving>().AddTarget(GameManager.Instance.ColectingArcher);
             Archer.Add(templateArcher);
             GameManager.Instance.Gold -= PriceArcherGold;
             GameManager.Instance.Wood -= PriceArcherWood;
+            UIManager.Instance.NotResorses("Вы создали лучника");
+        }
+        else
+        {
+            UIManager.Instance.NotResorses("Ресурсов на создание лучника не хватает!");
         }
         TotalNumberUnits();
     }
@@ -56,9 +63,15 @@ public class BaraksManager : MonoBehaviour
         if (GameManager.Instance.Gold >= PriceSpearmanGold || GameManager.Instance.Wood >= PriceSpearmanWood)
         {
             GameObject templateSpearman = Instantiate(TemplateSpearman, Home.position, Quaternion.identity);
+            templateSpearman.GetComponent<Moving>().AddTarget(GameManager.Instance.ColectingSpearman);
             Spearman.Add(templateSpearman);
             GameManager.Instance.Gold -= PriceSpearmanGold;
             GameManager.Instance.Wood -= PriceSpearmanWood;
+            UIManager.Instance.NotResorses("Вы создали копейщика");
+        }
+        else
+        {
+            UIManager.Instance.NotResorses("Ресурсов на создание копейщика не хватает!");
         }
         TotalNumberUnits();
     }
@@ -67,9 +80,15 @@ public class BaraksManager : MonoBehaviour
         if (GameManager.Instance.Gold >= PriceSwordsmanGold || GameManager.Instance.Wood >= PriceSwordsmanWood)
         {
             GameObject templateSwordsman = Instantiate(TemplateSwordsman, Home.position, Quaternion.identity);
+            templateSwordsman.GetComponent<Moving>().AddTarget(GameManager.Instance.ColectingSwordsman);
             Spearman.Add(templateSwordsman);
             GameManager.Instance.Gold -= PriceSwordsmanGold;
             GameManager.Instance.Wood -= PriceSwordsmanWood;
+            UIManager.Instance.NotResorses("Вы создали мечника");
+        }
+        else
+        {
+            UIManager.Instance.NotResorses("Ресурсов на создание мечника не хватает!");
         }
         TotalNumberUnits();
     }

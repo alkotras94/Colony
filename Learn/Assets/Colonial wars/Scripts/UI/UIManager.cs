@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {//Менеджер интерфейса
@@ -32,8 +33,15 @@ public class UIManager : MonoBehaviour
     public TMP_Text NextLevelBaraks; //Следующий уровень казармы
     public TMP_Text NextCurrentLevelCapacity; //Вместимость следующего уровня
     public TMP_Text[] PriceLevel; //Цена следующего уровня 0-камень, 1-дерево, 2-еда, 3-золото
+    public TMP_Text NotResoursec; //Уведомление о нехватке ресурсов
 
-
+    [Header("Камера")]
+    public Camera Camera; //Камера
+    [Header("Кнопки интерфейса")]
+    public GameObject ButtonPeasant; //Кнопка крестьян
+    public GameObject ButtonBaraks; //Кнопка казармы
+    public GameObject ButtonBatle; //Кнопка поле боя
+    public GameObject ButtonFortress; //Кнопка крепости
 
     public static UIManager Instance { get; set; }
     private void Awake()
@@ -61,6 +69,25 @@ public class UIManager : MonoBehaviour
         Wood.text = "Дерево: " + GameManager.Instance.Wood.ToString();
         Stone.text = "Камень: " + GameManager.Instance.Stone.ToString();
         Gold.text = "Золото: " + GameManager.Instance.Gold.ToString();
+    }
+
+    //Работа с камерой
+    public void GoToTheBattlefield() //Перейти на поле боя
+    {
+        Camera.transform.position = new Vector3(3,0,-10);
+        ButtonPeasant.SetActive(false);
+        ButtonBaraks.SetActive(false);
+        ButtonBatle.SetActive(false);
+        ButtonFortress.SetActive(true);
+    }
+
+    public void GoToTheFortress() //Перейти к крепости
+    {
+        Camera.transform.position = new Vector3(0, 0, -10);
+        ButtonPeasant.SetActive(true);
+        ButtonBaraks.SetActive(true);
+        ButtonBatle.SetActive(true);
+        ButtonFortress.SetActive(false);
     }
 
     //Функции для панели крестьян
@@ -221,5 +248,10 @@ public class UIManager : MonoBehaviour
     {
         BaraksManager.AddLevel();
         UpdatePanelBaraks();
+    }
+
+    public void NotResorses(string message)
+    {
+        NotResoursec.text = message;
     }
 }
